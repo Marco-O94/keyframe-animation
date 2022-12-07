@@ -1,0 +1,430 @@
+/* FONT */
+@font-face{
+    font-family: Union_Regular;
+    src: url(../fonts/union_regular.otf);
+ }
+
+
+/* FINE FONT */
+body {
+    background-color: #191464;
+    margin: 0;
+    padding: 0;
+    font-family: Union_Regular;
+    letter-spacing: normal;
+}
+
+#anim {
+    position: absolute;
+    width: 11em;
+    height: 11em;
+    z-index: 40;
+}
+
+.mid_box {
+    position: relative;
+    width: 21em;
+    height: 18.5em;
+}
+
+.circle-centered {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+#circle1 {
+    /* Cambiare url per immagine quando viene caricato su WP */
+    background-image: url('/images/Circle-1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17em;
+    width: 17em;
+    z-index: 2;
+    
+    /* Per Rallentarlo */
+    
+    /* Safari */
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 40000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: reverse;
+
+    /* Mozilla */
+    -moz-animation-name: spin;
+    -moz-animation-duration: 40000ms;
+    -moz-animation-direction: reverse;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    /* Edge */
+    -ms-animation-name: spin;
+    -ms-animation-duration: 40000ms;
+    -ms-animation-direction: reverse;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    /* Base */
+    animation-name: spin;
+    animation-duration: 40000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+}
+
+.abs_box {
+    width: 10.5em;
+    height: 10.5em;
+}
+
+.circle {
+    z-index: 2;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 100%;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+
+}
+
+#circle2 {
+    height: 10em;
+    width: 10em;
+    animation-delay: 0.4s;
+}
+
+#circle3 {
+    height: 9em;
+    width: 9em;
+    animation-delay: 0.6s;
+}
+
+#circle4 {
+    height: 8em;
+    width: 8em;
+    animation-delay: 0.8s;
+}
+
+#circle5 {
+    height: 7em;
+    width: 7em;
+    animation-delay: 1s;
+}
+
+#circle6 {
+    height: 6em;
+    width: 6em;
+    animation-delay: 1s;
+}
+
+#circle7 {
+    height: 5em;
+    width: 5em;
+    animation-delay: 1s;
+}
+
+#circle8 {
+    height: 4em;
+    width: 4em;
+    animation-delay: 1s;
+}
+
+#circle9 {
+    height: 3em;
+    width: 3em;
+    animation-delay: 1s;
+}
+
+#circle10 {
+    height: 2em;
+    width: 2em;
+    animation-delay: 1s;
+}
+
+#circle11 {
+    height: 1em;
+    width: 1em;
+    animation-delay: 1s;
+}
+
+.anim_container {
+    width: 1920px;
+    height: 1080px;
+    display: grid;
+    place-items: center;
+    font-size: 26px !important; /* Per ridimensionare tutto modificare questo valore */
+}
+
+#box_architettura {
+    top: -3em;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+#box_formazione {
+    bottom: 0;
+ 
+}
+
+#box_comunicazione {
+    bottom: 0;
+    right: 0;
+}
+/* Animazione Scritte */
+#box_comunicazione h3 {
+    opacity: 0;
+    animation: appear 2s linear forwards;
+    animation-delay: 2.2s;
+}
+
+#box_formazione h3 {
+    opacity: 0;
+    animation: appear 2s linear forwards;
+    animation-delay: 2.3s;
+}
+
+#box_architettura h3 {
+    opacity: 0;
+    animation: appear 2s linear forwards;
+    animation-delay: 2.1s;
+}
+
+.generic_box {
+    position: absolute;
+    border-radius: 100%;
+    background-color: transparent;
+    width: 6.5em;
+    height: 6.5em;
+    display: grid;
+    z-index: 99;
+    place-items: center;
+}
+
+.generic_caption {
+    position: absolute;
+    color: white;
+    font-size: 0.5em;
+    font-weight: 300;
+    top:5em; 
+    left:27em;  
+    height: auto;
+    width: 20em;
+}
+
+circle.cr, .box_text {
+    transition: all 0.5s ease-in-out;
+}
+#box_architettura svg:hover circle.cr, #box_formazione svg:hover circle.cr, #box_comunicazione svg:hover circle.cr {
+    fill: rgba(255,255,255,0.25);
+    
+}
+#box_architettura svg:hover .box_text, #box_formazione svg:hover .box_text, #box_comunicazione svg:hover .box_text {
+    color: #191464;
+}
+
+.generic_box svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    fill: white;
+    transform: rotate(-90deg);
+
+}
+
+/* Cerchio tracciato */
+.generic_box svg circle {
+    stroke-dasharray: 230;
+    stroke-dashoffset: 0;
+    stroke-width: 0;
+    animation-name: rotate;
+    animation-duration: 3s;
+    /* Da qui regoli la velocità */
+    animation-timing-function: cubic-bezier(0.7, 0.05, 0.36, 0.94);
+    animation-fill-mode: forwards;
+}
+
+.none {
+    display:none;
+}
+/* Classi per singolo cerchio */
+
+/* Su */
+#box_architettura.generic_box svg circle {
+    animation-delay: 1s;
+}
+/* Destra */
+#box_comunicazione.generic_box svg circle {
+    animation-delay: 1.3s;
+}
+/* Sinistra */
+#box_formazione.generic_box svg circle {
+    animation-delay: 1.6s;
+}
+
+.box_text {
+    color: white;
+    font-size: 0.75em;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+}
+
+/* Effetto Hover */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes rotate {
+    from {
+        stroke-dashoffset: 230;
+        stroke-width: 1px;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        stroke-width: 1px;
+    }
+}
+
+@-ms-keyframes rotate {
+    from {
+        stroke-dashoffset: 230;
+        stroke-width: 1px;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        stroke-width: 1px;
+    }
+}
+
+@-moz-keyframes rotate {
+    from {
+        stroke-dashoffset: 230;
+        stroke-width: 1px;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        stroke-width: 1px;
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        stroke-dashoffset: 230;
+        stroke-width: 1px;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        stroke-width: 1px;
+    }
+}
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(360deg);
+    }
+
+    to {
+        -ms-transform: rotate(0deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
